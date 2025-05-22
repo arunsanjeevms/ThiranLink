@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ThiranLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="/Logo.png" alt="ThiranLink Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="search.html">Find Workers</a>
+                <a href="post-job.html">Post Job</a>
+                <div class="user-menu">
+                    <button class="btn btn-secondary" id="userMenuButton">
+                        <div class="avatar-sm" id="userAvatar">
+                            <img src="" alt="User">
+                        </div>
+                        <span id="userName"></span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.html" class="active">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <button id="logoutButton">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <!-- Worker Dashboard -->
+            <div id="workerDashboard" style="display: none;">
+                <div class="dashboard-header">
+                    <h2>Worker Dashboard</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" id="toggleAvailability">
+                            <i class="fas fa-toggle-on"></i>
+                            <span>Available for Work</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="completedJobs">0</div>
+                            <div class="stat-label">Jobs Completed</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="averageRating">0.0</div>
+                            <div class="stat-label">Average Rating</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="totalEarnings">₹0</div>
+                            <div class="stat-label">Total Earnings</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="content-header">
+                        <h3>Job Requests</h3>
+                        <div class="content-filters">
+                            <button class="btn btn-secondary active" data-filter="pending">
+                                Pending (0)
+                            </button>
+                            <button class="btn btn-secondary" data-filter="accepted">
+                                Accepted (0)
+                            </button>
+                            <button class="btn btn-secondary" data-filter="completed">
+                                Completed (0)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="job-requests" id="jobRequests">
+                        <!-- Job requests will be populated here -->
+                    </div>
+
+                    <!-- No Jobs State -->
+                    <div class="no-jobs" id="noJobs" style="display: none;">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>No Job Requests</h3>
+                        <p>You don't have any job requests at the moment</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Dashboard -->
+            <div id="customerDashboard" style="display: none;">
+                <div class="dashboard-header">
+                    <h2>Customer Dashboard</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" onclick="location.href='post-job.html'">
+                            <i class="fas fa-plus"></i>
+                            Post New Job
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="totalJobs">0</div>
+                            <div class="stat-label">Total Jobs</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="activeJobs">0</div>
+                            <div class="stat-label">Active Jobs</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="completedJobsCustomer">0</div>
+                            <div class="stat-label">Completed Jobs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="content-header">
+                        <h3>My Jobs</h3>
+                        <div class="content-filters">
+                            <button class="btn btn-secondary active" data-filter="active">
+                                Active (0)
+                            </button>
+                            <button class="btn btn-secondary" data-filter="pending">
+                                Pending (0)
+                            </button>
+                            <button class="btn btn-secondary" data-filter="completed">
+                                Completed (0)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="job-list" id="jobList">
+                        <!-- Jobs will be populated here -->
+                    </div>
+
+                    <!-- No Jobs State -->
+                    <div class="no-jobs" id="noJobsCustomer" style="display: none;">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>No Jobs Posted</h3>
+                        <p>You haven't posted any jobs yet</p>
+                        <button class="btn btn-primary" onclick="location.href='post-job.html'">
+                            Post Your First Job
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Details Modal -->
+    <div class="modal-backdrop" id="jobModal">
+        <div class="modal job-modal">
+            <div class="modal-header">
+                <h3>Job Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Job details will be populated here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-action="close">Close</button>
+                <button class="btn btn-primary" data-action="accept">Accept Job</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="../index.html">
+                        <img src="../Logo.png" alt="ThiranLink Logo" class="footer-logo">
+                    </a>
+                    <p>Connecting skilled labours with customers</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/arunsanjeev/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/arunsanjeevms" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.link/j2bdyj" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://medium.com/@msarunsanjeev" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                        <a href="https://www.instagram.com/arun_sanjeev._/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i>&nbsp; msarunsanjeev@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 94926 33000</p>
+                    <p><i class="fas fa-map-marker-alt"></i> TamilNadu, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>  Developed by M S Arun Sanjeev</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Job Request Template -->
+    <template id="jobRequestTemplate">
+        <div class="job-request-card">
+            <div class="job-request-header">
+                <div class="customer-info">
+                    <div class="customer-avatar">
+                        <img src="" alt="Customer">
+                    </div>
+                    <div class="customer-details">
+                        <h4 class="customer-name"></h4>
+                        <div class="job-meta">
+                            <span class="job-date"></span>
+                            <span class="job-location"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="job-status"></div>
+            </div>
+            <div class="job-request-body">
+                <h4 class="job-title"></h4>
+                <p class="job-description"></p>
+                <div class="job-details">
+                    <div class="detail">
+                        <i class="fas fa-calendar"></i>
+                        <span class="preferred-date"></span>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-clock"></i>
+                        <span class="preferred-time"></span>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-rupee-sign"></i>
+                        <span class="budget"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="job-request-footer">
+                <button class="btn btn-secondary" data-action="view">View Details</button>
+                <button class="btn btn-primary" data-action="accept">Accept Job</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Job Card Template -->
+    <template id="jobCardTemplate">
+        <div class="job-card">
+            <div class="job-card-header">
+                <h4 class="job-title"></h4>
+                <div class="job-status"></div>
+            </div>
+            <div class="job-card-body">
+                <div class="job-details">
+                    <div class="detail">
+                        <i class="fas fa-tools"></i>
+                        <span class="job-category"></span>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-calendar"></i>
+                        <span class="job-date"></span>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="job-location"></span>
+                    </div>
+                </div>
+                <div class="worker-info">
+                    <div class="worker-avatar">
+                        <img src="" alt="Worker">
+                    </div>
+                    <div class="worker-details">
+                        <span class="worker-name"></span>
+                        <div class="worker-rating">
+                            <div class="stars"></div>
+                            <span class="rating-count"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-card-footer">
+                <button class="btn btn-secondary" data-action="view">View Details</button>
+                <button class="btn btn-primary" data-action="complete">Mark Complete</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html> 

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job - ThiranLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../Logo.png" alt="ThiranLink Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="search.html">Find Workers</a>
+                <a href="post-job.html" class="active">Post Job</a>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-primary" onclick="location.href='register.html'">Register</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Job Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Post a Job</h2>
+                    <p>Find skilled workers for your project in a few simple steps</p>
+                </div>
+
+                <form id="jobPostForm" class="job-post-form" novalidate>
+                    <!-- Basic Job Details -->
+                    <div class="form-section-title">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Basic Job Details</h3>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title</label>
+                        <input type="text" id="jobTitle" name="title" placeholder="e.g., Bathroom Plumbing Repair">
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobCategory">Required Skill</label>
+                        <select id="jobCategory" name="category">
+                            <option value="">Select Required Skill</option>
+                            <optgroup label="Construction">
+                                <option value="carpenter">Carpenter</option>
+                                <option value="plumber">Plumber</option>
+                                <option value="electrician">Electrician</option>
+                                <option value="mason">Mason</option>
+                            </optgroup>
+                            <optgroup label="Finishing">
+                                <option value="painter">Painter</option>
+                                <option value="tiler">Tiler</option>
+                                <option value="pop_designer">POP Designer</option>
+                            </optgroup>
+                            <optgroup label="Crafts">
+                                <option value="potter">Potter</option>
+                                <option value="weaver">Weaver</option>
+                                <option value="blacksmith">Blacksmith</option>
+                            </optgroup>
+                        </select>
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobDescription">Job Description</label>
+                        <textarea id="jobDescription" name="description" rows="5" 
+                            placeholder="Describe the work that needs to be done, including any specific requirements or materials needed"></textarea>
+                        <div class="error-message"></div>
+                    </div>
+
+                    <!-- Schedule Details -->
+                    <div class="form-section-title">
+                        <i class="fas fa-calendar"></i>
+                        <h3>Schedule Details</h3>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="jobDate">Preferred Date</label>
+                            <input type="date" id="jobDate" name="date">
+                            <div class="error-message"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobTime">Preferred Time</label>
+                            <input type="time" id="jobTime" name="time">
+                            <div class="error-message"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobDuration">Estimated Duration</label>
+                        <select id="jobDuration" name="duration">
+                            <option value="">Select Duration</option>
+                            <option value="few_hours">Few Hours</option>
+                            <option value="one_day">One Day</option>
+                            <option value="few_days">Few Days</option>
+                            <option value="one_week">One Week</option>
+                            <option value="multiple_weeks">Multiple Weeks</option>
+                        </select>
+                        <div class="error-message"></div>
+                    </div>
+
+                    <!-- Location and Budget -->
+                    <div class="form-section-title">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location and Budget</h3>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobLocation">Location</label>
+                        <input type="text" id="jobLocation" name="location" placeholder="Enter the work location">
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Budget Range (₹)</label>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <input type="number" id="jobBudgetMin" name="budgetMin" placeholder="Minimum">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" id="jobBudgetMax" name="budgetMax" placeholder="Maximum">
+                                <div class="error-message"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="form-section-title">
+                        <i class="fas fa-info-circle"></i>
+                        <h3>Additional Information</h3>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jobImages">Upload Images</label>
+                        <div class="file-upload">
+                            <input type="file" id="jobImages" name="images" accept="image/*" multiple>
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & drop images or click to upload</p>
+                            <span class="help-text">Upload images of the work area (Max 5 images, 5MB each)</span>
+                        </div>
+                        <div class="error-message"></div>
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalNotes">Additional Notes</label>
+                        <textarea id="additionalNotes" name="notes" rows="3" 
+                            placeholder="Any additional information or special requirements"></textarea>
+                    </div>
+
+                    <div class="form-group terms-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="termsAccept" name="termsAccept">
+                            <span class="checkbox-custom"></span>
+                            <span class="label-text">I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></span>
+                        </label>
+                        <div class="error-message"></div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Post Job
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="../index.html">
+                        <img src="../Logo.png" alt="ThiranLink Logo" class="footer-logo">
+                    </a>
+                    <p>Connecting skilled labours with customers</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/arunsanjeev/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/arunsanjeevms" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.link/j2bdyj" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://medium.com/@msarunsanjeev" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                        <a href="https://www.instagram.com/arun_sanjeev._/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i>&nbsp; msarunsanjeev@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 94926 33000</p>
+                    <p><i class="fas fa-map-marker-alt"></i> TamilNadu, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>  Developed by M S Arun Sanjeev</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/post-job.js"></script>
+</body>
+</html> 

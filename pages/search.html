@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Workers - ThiranLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../Logo.png" alt="ThiranLink Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="search.html" class="active">Find Workers</a>
+                <a href="post-job.html">Post Job</a>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-primary" onclick="location.href='register.html'">Register</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-header">
+                <h2>Find Skilled Workers</h2>
+                <p>Search and filter skilled workers based on your requirements</p>
+            </div>
+
+            <!-- Search Filters -->
+            <div class="search-filters">
+                <div class="filter-group">
+                    <input type="text" id="searchKeyword" placeholder="Search by name or skill...">
+                    <button class="btn btn-primary" id="searchButton">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <select id="skillFilter">
+                            <option value="">All Skills</option>
+                            <option value="carpenter">Carpenter</option>
+                            <option value="plumber">Plumber</option>
+                            <option value="electrician">Electrician</option>
+                            <option value="mason">Mason</option>
+                            <option value="painter">Painter</option>
+                            <option value="potter">Potter</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <select id="locationFilter">
+                            <option value="">All Locations</option>
+                            <!-- Will be populated dynamically -->
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <select id="availabilityFilter">
+                            <option value="">Any Availability</option>
+                            <option value="morning">Morning (6 AM - 12 PM)</option>
+                            <option value="afternoon">Afternoon (12 PM - 6 PM)</option>
+                            <option value="evening">Evening (6 PM - 10 PM)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <select id="ratingFilter">
+                            <option value="">Any Rating</option>
+                            <option value="4">4+ Stars</option>
+                            <option value="3">3+ Stars</option>
+                            <option value="2">2+ Stars</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="active-filters" id="activeFilters">
+                    <!-- Active filters will be displayed here -->
+                </div>
+            </div>
+
+            <!-- Search Results -->
+            <div class="search-results">
+                <div class="results-header">
+                    <div class="results-count">
+                        <span id="resultCount">0</span> workers found
+                    </div>
+                    <div class="results-sort">
+                        <label for="sortBy">Sort by:</label>
+                        <select id="sortBy">
+                            <option value="rating">Rating</option>
+                            <option value="experience">Experience</option>
+                            <option value="availability">Availability</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="worker-grid" id="workerGrid">
+                    <!-- Worker cards will be displayed here -->
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading-state" id="loadingState" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Loading workers...</p>
+                </div>
+
+                <!-- No Results State -->
+                <div class="no-results" id="noResults" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No Workers Found</h3>
+                    <p>Try adjusting your filters or search terms</p>
+                </div>
+
+                <!-- Load More -->
+                <div class="load-more" id="loadMore" style="display: none;">
+                    <button class="btn btn-secondary">
+                        Load More <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Worker Details Modal -->
+    <div class="modal-backdrop" id="workerModal">
+        <div class="modal worker-modal">
+            <div class="modal-header">
+                <h3>Worker Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Worker details will be populated here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-action="close">Close</button>
+                <button class="btn btn-primary" data-action="hire">Hire Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="../index.html">
+                        <img src="../Logo.png" alt="ThiranLink Logo" class="footer-logo">
+                    </a>
+                    <p>Connecting skilled laborers with customers</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/arunsanjeev/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/arunsanjeevms" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.link/j2bdyj" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://medium.com/@msarunsanjeev" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                        <a href="https://www.instagram.com/arun_sanjeev._/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i>&nbsp; msarunsanjeev@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 94926 33000</p>
+                    <p><i class="fas fa-map-marker-alt"></i> TamilNadu, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>  Developed by M S Arun Sanjeev</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Worker Card Template -->
+    <template id="workerCardTemplate">
+        <div class="worker-card">
+            <div class="worker-header">
+                <div class="worker-avatar">
+                    <img src="" alt="Worker">
+                </div>
+                <div class="worker-info">
+                    <h3 class="worker-name"></h3>
+                    <div class="worker-rating">
+                        <div class="stars"></div>
+                        <span class="rating-count"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="worker-body">
+                <div class="worker-skill">
+                    <i class="fas fa-tools"></i>
+                    <span></span>
+                </div>
+                <div class="worker-location">
+                    <i class="fas fa-location-dot"></i>
+                    <span></span>
+                </div>
+                <div class="worker-experience">
+                    <i class="fas fa-briefcase"></i>
+                    <span></span>
+                </div>
+                <div class="worker-availability">
+                    <i class="fas fa-clock"></i>
+                    <span></span>
+                </div>
+            </div>
+            <div class="worker-footer">
+                <button class="btn btn-secondary" data-action="view">View Profile</button>
+                <button class="btn btn-primary" data-action="hire">Hire Now</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
+</body>
+</html> 

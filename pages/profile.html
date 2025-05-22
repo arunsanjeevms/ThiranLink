@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - ThiranLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>ThiranLink</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="search.html">Find Workers</a>
+                <a href="post-job.html">Post Job</a>
+                <div class="user-menu">
+                    <button class="btn btn-secondary" id="userMenuButton">
+                        <div class="avatar-sm" id="userAvatar">
+                            <img src="" alt="User">
+                        </div>
+                        <span id="userName"></span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <a href="profile.html" class="active">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <button id="logoutButton">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="profile-avatar-wrapper">
+                        <div class="profile-avatar" id="profileAvatar">
+                            <img src="" alt="Profile">
+                            <button class="change-avatar" id="changeAvatar">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <input type="file" id="avatarInput" accept="image/*" hidden>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileName"></h2>
+                        <p id="profileType"></p>
+                    </div>
+                </div>
+
+                <div class="profile-tabs">
+                    <button class="tab-button active" data-tab="personal">
+                        <i class="fas fa-user"></i> Personal Information
+                    </button>
+                    <button class="tab-button" data-tab="work">
+                        <i class="fas fa-briefcase"></i> Work Details
+                    </button>
+                    <button class="tab-button" data-tab="security">
+                        <i class="fas fa-lock"></i> Security
+                    </button>
+                </div>
+
+                <div class="profile-content">
+                    <!-- Personal Information Tab -->
+                    <div class="tab-content active" id="personalTab">
+                        <form id="personalForm" class="profile-form" novalidate>
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                    <span class="error-message"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Address *</label>
+                                <textarea id="address" name="address" rows="3" required></textarea>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State *</label>
+                                    <input type="text" id="state" name="state" required>
+                                    <span class="error-message"></span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Work Details Tab -->
+                    <div class="tab-content" id="workTab">
+                        <form id="workForm" class="profile-form" novalidate>
+                            <div class="form-group worker-only">
+                                <label for="skill">Primary Skill *</label>
+                                <select id="skill" name="skill" required>
+                                    <option value="">Select Skill</option>
+                                    <option value="carpenter">Carpenter</option>
+                                    <option value="plumber">Plumber</option>
+                                    <option value="electrician">Electrician</option>
+                                    <option value="mason">Mason</option>
+                                    <option value="painter">Painter</option>
+                                    <option value="potter">Potter</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group worker-only">
+                                <label for="experience">Years of Experience *</label>
+                                <input type="number" id="experience" name="experience" min="0" required>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group worker-only">
+                                <label for="hourlyRate">Hourly Rate (₹) *</label>
+                                <input type="number" id="hourlyRate" name="hourlyRate" min="0" required>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group worker-only">
+                                <label>Working Hours *</label>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="startTime">Start Time</label>
+                                        <input type="time" id="startTime" name="startTime" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="endTime">End Time</label>
+                                        <input type="time" id="endTime" name="endTime" required>
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group worker-only">
+                                <label>Working Days</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="workingDays" value="monday" checked>
+                                        <span>Monday</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="workingDays" value="tuesday" checked>
+                                        <span>Tuesday</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="workingDays" value="wednesday" checked>
+                                        <span>Wednesday</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="workingDays" value="thursday" checked>
+                                        <span>Thursday</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="workingDays" value="friday" checked>
+                                        <span>Friday</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="workingDays" value="saturday">
+                                        <span>Saturday</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="workingDays" value="sunday">
+                                        <span>Sunday</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group worker-only">
+                                <label for="bio">Bio</label>
+                                <textarea id="bio" name="bio" rows="4" 
+                                    placeholder="Tell customers about your work experience and expertise"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Security Tab -->
+                    <div class="tab-content" id="securityTab">
+                        <form id="securityForm" class="profile-form" novalidate>
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password *</label>
+                                <div class="password-input">
+                                    <input type="password" id="currentPassword" name="currentPassword" required>
+                                    <button type="button" class="toggle-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newPassword">New Password *</label>
+                                <div class="password-input">
+                                    <input type="password" id="newPassword" name="newPassword" required>
+                                    <button type="button" class="toggle-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <span class="error-message"></span>
+                                <span class="help-text">
+                                    Password must be at least 8 characters long and include uppercase, 
+                                    lowercase, number, and special character
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password *</label>
+                                <div class="password-input">
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                    <button type="button" class="toggle-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Update Password</button>
+                        </form>
+
+                        <div class="danger-zone">
+                            <h3>Danger Zone</h3>
+                            <p>Once you delete your account, there is no going back. Please be certain.</p>
+                            <button class="btn btn-danger" id="deleteAccount">Delete Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="../index.html">
+                        <img src="../Logo.png" alt="ThiranLink Logo" class="footer-logo">
+                    </a>
+                    <p>Connecting skilled labours with customers</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/arunsanjeev/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/arunsanjeevms" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.link/j2bdyj" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://medium.com/@msarunsanjeev" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                        <a href="https://www.instagram.com/arun_sanjeev._/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i>&nbsp; msarunsanjeev@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 94926 33000</p>
+                    <p><i class="fas fa-map-marker-alt"></i> TamilNadu, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>  Developed by M S Arun Sanjeev</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+</html> 

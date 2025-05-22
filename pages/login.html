@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ThiranLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="/Logo.png" alt="ThiranLink Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="search.html">Find Workers</a>
+                <a href="post-job.html">Post Job</a>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary active" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-primary" onclick="location.href='register.html'">Register</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="login-background">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        
+        <div class="container">
+            <div class="login-wrapper">
+                <div class="login-container">
+                    <div class="login-header">
+                       <br>
+                        <h2>Welcome Back!</h2>
+                        <p>Enter your credentials to access your account</p>
+                    </div>
+
+                    <form id="loginForm" class="login-form" novalidate>
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i>
+                                Email Address
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="Enter your email" 
+                                required
+                                autocomplete="email">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">
+                                <i class="fas fa-lock"></i>
+                                Password
+                            </label>
+                            <div class="password-input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    class="password-input"
+                                    placeholder="Enter your password" 
+                                    required
+                                    autocomplete="current-password">
+                                <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rememberMe" name="rememberMe">
+                                <span class="checkbox-custom"></span>
+                                <span class="label-text">Remember me</span>
+                            </label>
+                            <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <span class="btn-text">Sign In</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+
+                        <div class="login-divider">
+                            <span>Or continue with</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="btn btn-google">
+                                <img src="https://www.google.com/favicon.ico" alt="Google" loading="lazy">
+                                <span>Google</span>
+                            </button>
+                            <button type="button" class="btn btn-facebook">
+                                <i class="fab fa-facebook"></i>
+                                <span>Facebook</span>
+                            </button>
+                        </div>
+
+                        <p class="register-link">
+                            <br>
+                            Don't have an account? 
+                            <a href="register.html">Create an account</a>
+                        </p>
+                    </form>
+                </div>
+
+                <div class="login-features">
+                    <h3>Why Choose ThiranLink?</h3>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="feature-text">
+                                <h4>Verified Workers</h4>
+                                <p>All workers are thoroughly vetted and verified for your safety and peace of mind.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bolt"></i>
+                            <div class="feature-text">
+                                <h4>Quick Response</h4>
+                                <p>Get connected with skilled workers within minutes of posting your job.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-star"></i>
+                            <div class="feature-text">
+                                <h4>Quality Service</h4>
+                                <p>Rated and reviewed workers ensure you get the best quality service.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-wallet"></i>
+                            <div class="feature-text">
+                                <h4>Competitive Pricing</h4>
+                                <p>Transparent pricing and competitive rates for all services.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clock"></i>
+                            <div class="feature-text">
+                                <h4>24/7 Support</h4>
+                                <p>Round-the-clock customer support to assist you anytime.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-handshake"></i>
+                            <div class="feature-text">
+                                <h4>Secure Platform</h4>
+                                <p>Safe and secure platform for all your skilled labor needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="../index.html">
+                        <img src="../Logo.png" alt="ThiranLink Logo" class="footer-logo">
+                    </a>
+                    <p>Connecting skilled labours with customers</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/arunsanjeev/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/arunsanjeevms" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.link/j2bdyj" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://medium.com/@msarunsanjeev" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                        <a href="https://www.instagram.com/arun_sanjeev._/" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i>&nbsp; msarunsanjeev@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 94926 33000</p>
+                    <p><i class="fas fa-map-marker-alt"></i> TamilNadu, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>  Developed by M S Arun Sanjeev</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+</html> 

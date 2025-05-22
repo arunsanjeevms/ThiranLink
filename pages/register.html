@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ThiranLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../Logo.png" alt="ThiranLink Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="search.html">Find Workers</a>
+                <a href="post-job.html">Post Job</a>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-primary active" onclick="location.href='register.html'">Register</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Form -->
+    <section class="registration-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Join ThiranLink</h2>
+                    <p>Create your account and start connecting with customers</p>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="form-progress">
+                    <div class="progress-step active" data-step="1">1</div>
+                    <div class="progress-step" data-step="2">2</div>
+                    <div class="progress-step" data-step="3">3</div>
+                </div>
+
+                <form id="registrationForm" class="registration-form" novalidate>
+                    <!-- Step 1: Basic Information -->
+                    <div class="form-step active" data-step="1">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                                <span class="error-message">Please enter your first name</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                                <span class="error-message">Please enter your last name</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                            <span class="error-message">Please enter a valid email address</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                            <span class="error-message">Please enter a valid phone number</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="male" required>
+                                    <span>Male</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="female">
+                                    <span>Female</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="other">
+                                    <span>Other</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" required>
+                            <span class="error-message">Please enter your date of birth</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Skills & Experience -->
+                    <div class="form-step" data-step="2">
+                        <div class="form-group">
+                            <label>Primary Category</label>
+                            <select id="primaryCategory" name="primaryCategory" required>
+                                <option value="">Select your primary work category</option>
+                                <option value="construction">Construction</option>
+                                <option value="woodwork">Woodwork</option>
+                                <option value="metalwork">Metalwork</option>
+                                <option value="painting">Painting & Finishing</option>
+                                <option value="home_services">Home Services</option>
+                                <option value="automotive">Automotive</option>
+                                <option value="agriculture">Agriculture & Rural</option>
+                                <option value="crafts">Crafts & Artisans</option>
+                                <option value="tech">Tech Installers</option>
+                                <option value="beauty">Beauty & Grooming</option>
+                                <option value="events">Events & Setup</option>
+                                <option value="miscellaneous">Miscellaneous</option>
+                            </select>
+                            <span class="error-message">Please select your primary work category</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Primary Skill</label>
+                            <select id="primarySkill" name="primarySkill" required>
+                                <option value="">Select your primary skill</option>
+                                <!-- Construction -->
+                                <optgroup label="Construction">
+                                    <option value="mason">Mason</option>
+                                    <option value="plumber">Plumber</option>
+                                    <option value="electrician">Electrician</option>
+                                    <option value="tile_setter">Tile Setter</option>
+                                    <option value="welder">Welder</option>
+                                    <option value="fabricator">Fabricator</option>
+                                </optgroup>
+                                <!-- Woodwork -->
+                                <optgroup label="Woodwork">
+                                    <option value="carpenter">Carpenter</option>
+                                    <option value="furniture_maker">Furniture Maker</option>
+                                    <option value="wood_polisher">Wood Polisher</option>
+                                </optgroup>
+                                <!-- Metalwork -->
+                                <optgroup label="Metalwork">
+                                    <option value="blacksmith">Blacksmith</option>
+                                    <option value="sheet_metal">Sheet Metal Worker</option>
+                                    <option value="fitter">Fitter</option>
+                                </optgroup>
+                                <!-- Other categories... -->
+                            </select>
+                            <span class="error-message">Please select your primary skill</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Additional Skills</label>
+                            <div class="skills-container">
+                                <!-- Construction Skills -->
+                                <div class="skill-category">
+                                    <h4>Construction</h4>
+                                    <div class="skill-tag" data-skill="bricklaying">Bricklaying</div>
+                                    <div class="skill-tag" data-skill="pipe_fitting">Pipe Fitting</div>
+                                    <div class="skill-tag" data-skill="wiring">Wiring</div>
+                                    <div class="skill-tag" data-skill="welding">Welding</div>
+                                </div>
+                                <!-- Woodwork Skills -->
+                                <div class="skill-category">
+                                    <h4>Woodwork</h4>
+                                    <div class="skill-tag" data-skill="hand_tools">Hand Tools</div>
+                                    <div class="skill-tag" data-skill="joinery">Joinery</div>
+                                    <div class="skill-tag" data-skill="cabinet_making">Cabinet Making</div>
+                                </div>
+                                <!-- Add more skill categories... -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Years of Experience</label>
+                            <input type="number" id="experience" name="experience" min="0" max="50" placeholder="Enter years of experience" required>
+                            <span class="error-message">Please enter valid years of experience</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Availability</label>
+                            <div class="schedule-grid">
+                                <div class="day-column">
+                                    <div class="day-label">Mon</div>
+                                    <div class="time-slot" data-time="morning">Morning</div>
+                                    <div class="time-slot" data-time="afternoon">Afternoon</div>
+                                    <div class="time-slot" data-time="evening">Evening</div>
+                                </div>
+                                <div class="day-column">
+                                    <div class="day-label">Tue</div>
+                                    <div class="time-slot" data-time="morning">Morning</div>
+                                    <div class="time-slot" data-time="afternoon">Afternoon</div>
+                                    <div class="time-slot" data-time="evening">Evening</div>
+                                </div>
+                                <div class="day-column">
+                                    <div class="day-label">Wed</div>
+                                    <div class="time-slot" data-time="morning">Morning</div>
+                                    <div class="time-slot" data-time="afternoon">Afternoon</div>
+                                    <div class="time-slot" data-time="evening">Evening</div>
+                                </div>
+                                <div class="day-column">
+                                    <div class="day-label">Thu</div>
+                                    <div class="time-slot" data-time="morning">Morning</div>
+                                    <div class="time-slot" data-time="afternoon">Afternoon</div>
+                                    <div class="time-slot" data-time="evening">Evening</div>
+                                </div>
+                                <div class="day-column">
+                                    <div class="day-label">Fri</div>
+                                    <div class="time-slot" data-time="morning">Morning</div>
+                                    <div class="time-slot" data-time="afternoon">Afternoon</div>
+                                    <div class="time-slot" data-time="evening">Evening</div>
+                                </div>
+                                <div class="day-column">
+                                    <div class="day-label">Sat</div>
+                                    <div class="time-slot" data-time="morning">Morning</div>
+                                    <div class="time-slot" data-time="afternoon">Afternoon</div>
+                                    <div class="time-slot" data-time="evening">Evening</div>
+                                </div>
+                                <div class="day-column">
+                                    <div class="day-label">Sun</div>
+                                    <div class="time-slot" data-time="morning">Morning</div>
+                                    <div class="time-slot" data-time="afternoon">Afternoon</div>
+                                    <div class="time-slot" data-time="evening">Evening</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Location & Profile -->
+                    <div class="form-step" data-step="3">
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" name="address" placeholder="Enter your street address" required>
+                            <span class="error-message">Please enter your street address</span>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" placeholder="Enter your city" required>
+                                <span class="error-message">Please enter your city</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" id="state" name="state" required>
+                                <span class="error-message">Please enter your state</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" name="bio" rows="4" placeholder="Tell customers about yourself and your work experience"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Profile Picture</label>
+                            <div class="file-upload">
+                                <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag and drop an image or click to browse</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" required>
+                                <span>I agree to the <a href="../pages/terms.html">Terms of Service</a> and <a href="../pages/privacy.html">Privacy Policy</a></span>
+                            </label>
+                            <span class="error-message">You must agree to the terms</span>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="prevStep" style="display: none;">Previous</button>
+                        <button type="button" class="btn btn-primary" id="nextStep">Next</button>
+                        <button type="submit" class="btn btn-primary" id="submitForm" style="display: none;">Create Account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="../js/theme.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/registration.js"></script>
+</body>
+</html> 
