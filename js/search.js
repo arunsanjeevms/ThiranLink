@@ -47,7 +47,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Create mock worker data
     const createMockWorkers = () => {
-        const skills = ['carpenter', 'plumber', 'electrician', 'mason', 'painter', 'potter'];
+        const skills = [
+            // Construction
+            'mason', 'plumber', 'electrician', 'tile_setter', 'welder', 'fabricator',
+            // Woodwork
+            'carpenter', 'furniture_maker', 'wood_polisher',
+            // Metalwork
+            'blacksmith', 'sheet_metal', 'fitter',
+            // Painting & Finishing
+            'painter', 'pop_designer', 'wallpaper_expert',
+            // Home Services
+            'cleaner', 'cook', 'housekeeper', 'pest_control'
+        ];
         const locations = ['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Kolkata', 'Hyderabad'];
         const mockWorkers = [];
 

@@ -3,9 +3,27 @@
 /* Hero Section */
 .hero {
     position: relative;
-    padding: calc(var(--header-height) + 4rem) 0 6rem;
+    padding: 5rem 0;
+    margin-top: var(--header-height);
     background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
-    overflow: hidden;
+    overflow: visible;
+    border-radius: 3rem 3rem 3rem 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .hero::before {
@@ -15,7 +33,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 150%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 150%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+    border-radius: 0 0 3rem 3rem;
 }
 
 .hero::after {
@@ -27,15 +46,18 @@
     bottom: 0;
     background: radial-gradient(circle at 70% -10%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
     pointer-events: none;
+    border-radius: 0 0 3rem 3rem;
 }
 
 .hero-content {
+    
     position: relative;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
     color: white;
     z-index: 2;
+    padding: 0 2rem;
 }
 
 .hero h1 {
@@ -212,9 +234,95 @@
 }
 
 @media (max-width: 768px) {
-    .feature-card {
-        max-width: 100%;
+    .hero {
+        margin: var(--header-height) 1rem 0 1rem;
+        border-radius: 0 0 2rem 2rem;
+        padding: 6rem 0;
     }
+
+    .hero::before,
+    .hero::after {
+        border-radius: 0 0 2rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .feature-card,
+    .category-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .category-card {
+        padding: 1.5rem;
+    }
+
+    .category-card i {
+        font-size: 2rem;
+    }
+
+    .category-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .category-card p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .category-card {
+    background: linear-gradient(145deg, rgba(55, 65, 81, 0.9), rgba(17, 24, 39, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .feature-card::before,
+[data-theme="dark"] .category-card::before {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(37, 99, 235, 0.05));
+}
+
+[data-theme="dark"] .feature-card:hover,
+[data-theme="dark"] .category-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
 }
 
 /* Categories Section */
@@ -317,86 +425,4 @@
     line-height: 1.5;
     position: relative;
     z-index: 1;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1.1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .hero-buttons .btn {
-        width: 100%;
-    }
-
-    .feature-card,
-    .category-card {
-        padding: 2rem 1.5rem;
-    }
-
-    .category-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        padding: 0 0.5rem;
-    }
-
-    .category-card {
-        padding: 1.5rem;
-    }
-
-    .category-card i {
-        font-size: 2rem;
-    }
-
-    .category-card h3 {
-        font-size: 1.1rem;
-    }
-
-    .category-card p {
-        font-size: 0.85rem;
-    }
-}
-
-/* Dark Mode Adjustments */
-[data-theme="dark"] .feature-card,
-[data-theme="dark"] .category-card {
-    background: linear-gradient(145deg, rgba(55, 65, 81, 0.9), rgba(17, 24, 39, 0.9));
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-}
-
-[data-theme="dark"] .feature-card::before,
-[data-theme="dark"] .category-card::before {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(37, 99, 235, 0.05));
-}
-
-[data-theme="dark"] .feature-card:hover,
-[data-theme="dark"] .category-card:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Animation Classes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-fadeInUp {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
 } 
