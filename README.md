@@ -1,16 +1,10 @@
 
-<p align="center">
-  <img src="./Logo.png" alt="Logo Icon" width="100" height="100">
-</p>
-
-<br>
-
 <div align="center">
 
-# 🔗 ThiranLink – Empowering Skilled Labor through Digital Access
+# ThiranLink – Empowering Skilled Labour through Digital Access
 
   <em>
-    This project is developed in support of the Government of India’s <strong>Skill India Mission</strong>, aiming to empower skilled laborers by providing them a digital platform to showcase their expertise and access better livelihood opportunities.
+    This project is developed in support of the Government of India’s <strong>Skill India Mission</strong>, aiming to empower skilled labourers by providing them a digital platform to showcase their expertise and access better livelihood opportunities.
   </em>
 
    <br />
@@ -39,7 +33,7 @@
 ## 🛠️ Overview
 
 
-**ThiranLink** is an AI-enhanced web platform that bridges the gap between skilled laborers (like masons, carpenters, pot makers, and electricians) and people who seek their services. It enables transparent hiring, showcases skill ratings, and promotes traditional craftsmanship in the digital era.
+**ThiranLink** is an AI-enhanced web platform that bridges the gap between skilled labourers (like masons, carpenters, pot makers, and electricians) and people who seek their services. It enables transparent hiring, showcases skill ratings, and promotes traditional craftsmanship in the digital era.
 
 ---
 ## ✨ Key Features
@@ -48,12 +42,12 @@
 
 | Feature | Description |
 |--------|-------------|
-| 👷 **Labor Profiles** | Create verified, searchable profiles for skilled workers |
-| 📍 **Location-Based Discovery** | Hire nearby laborers using geolocation filters |
+| 👷 **labour Profiles** | Create verified, searchable profiles for skilled workers |
+| 📍 **Location-Based Discovery** | Hire nearby labourers using geolocation filters |
 | ⭐ **Ratings & Reviews** | Real-time rating system for quality assurance |
 | 🗓️ **Booking System** | Schedule services with availability calendar |
 | 💬 **Live Chat** | Direct messaging for inquiries and negotiations |
-| 🧠 **AI Recommendations** | Suggest skilled laborers based on your needs |
+| 🧠 **AI Recommendations** | Suggest skilled labourers based on your needs |
 | 📱 **Mobile-Responsive** | Works seamlessly across devices |
 | 🖼️ **Photo Gallery** | Upload previous work images to build trust |
 | 🔐 **Secure Login** | Role-based access for admin, workers, and users |
